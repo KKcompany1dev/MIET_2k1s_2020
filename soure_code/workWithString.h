@@ -13,5 +13,7 @@ System::String^ makeQueryUpdateFromSystemString(const std::list<std::wstring>& f
 std::string convertSystemStringToStdString(System::String^ str);
 std::wstring convertSystemStringToWString(System::String^ str);
 
+bool wstringStartWith(const std::wstring& str1, const std::wstring& str2);
+
 #endif // !WORK_WITH_STRING_H
 

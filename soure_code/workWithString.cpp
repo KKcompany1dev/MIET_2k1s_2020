@@ -147,3 +147,12 @@ std::wstring convertSystemStringToWString(System::String^ str)
 {
 	return msclr::interop::marshal_as<std::wstring>(str);
 }
+
+// Строка является началом другой строки
+bool wstringStartWith(const std::wstring& str1, const std::wstring& str2)
+{
+	for (size_t i = 0; i < str2.size(); i++)
+		if (str1[i] == str2[i]);
+		else return false;
+	return true;
+}
