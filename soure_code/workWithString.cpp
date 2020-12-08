@@ -147,3 +147,47 @@ std::wstring convertSystemStringToWString(System::String^ str)
 {
 	return msclr::interop::marshal_as<std::wstring>(str);
 }
+
+// Строка является началом другой строки
+bool wstringStartWith(const std::wstring& str1, const std::wstring& str2)
+{
+	for (size_t i = 0; i < str2.size(); i++)
+		if (str1[i] == str2[i]);
+		else return false;
+	return true;
+}
+
+// Проверят формат даты ДД.ММ.ГГГГ
+bool isDateFormat(System::String^ date)
+{
+	if (date->Length != 10) return false;
+	
+	if (!(date[0] >= '0' && date[0] <= '3')) return false;
+	if (!(date[1] >= '0' && date[1] <= '9')) return false;
+	if (!(date[2] == '.')) return false;
+	if (!(date[3] >= '0' && date[3] <= '1')) return false;
+	if (!(date[4] >= '0' && date[4] <= '9')) return false;
+	if (!(date[5] == '.')) return false;
+	if (!(date[6] >= '0' && date[6] <= '9')) return false;
+	if (!(date[7] >= '0' && date[7] <= '9')) return false;
+	if (!(date[8] >= '0' && date[8] <= '9')) return false;
+	if (!(date[9] >= '0' && date[9] <= '9')) return false;
+
+	return true;
+}
+
+int getDay(System::String^ date)
+{
+	return System::Int32::Parse(date[0].ToString() + date[1].ToString());
+}
+
+int getMonth(System::String^ date)
+{
+	return System::Int32::Parse(date[3].ToString() + date[4].ToString());
+}
+
+int getYear(System::String^ date)
+{
+	return System::Int32::Parse(date[6].ToString() + date[7].ToString() + date[8].ToString() + date[9].ToString());
+}
+

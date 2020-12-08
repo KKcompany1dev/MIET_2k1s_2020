@@ -13,5 +13,12 @@ System::String^ makeQueryUpdateFromSystemString(const std::list<std::wstring>& f
 std::string convertSystemStringToStdString(System::String^ str);
 std::wstring convertSystemStringToWString(System::String^ str);
 
+bool wstringStartWith(const std::wstring& str1, const std::wstring& str2);
+
+bool isDateFormat(System::String^ date);
+int getDay(System::String^ date);
+int getMonth(System::String^ date);
+int getYear(System::String^ date);
+
 #endif // !WORK_WITH_STRING_H
 
