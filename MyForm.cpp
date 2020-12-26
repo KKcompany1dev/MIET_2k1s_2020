@@ -674,8 +674,8 @@ System::Void KURSA4::MyForm::button_findConractDate_Click(System::Object^ sender
 			int m_year = getYear(m);
 
 			if (m_year < from_year) numberOfGoodRows++;
-			else if (m_month < from_month) numberOfGoodRows++;
-			else if (m_day <= from_day) numberOfGoodRows++;
+			else if (m_month < from_month && m_year <= from_year) numberOfGoodRows++;
+			else if (m_day <= from_day && m_year <= from_year && m_month <= from_month) numberOfGoodRows++;
 		}
 
 		// Создадим матрицу с числом строк numberOfGoodRows и заполним ее
@@ -690,8 +690,8 @@ System::Void KURSA4::MyForm::button_findConractDate_Click(System::Object^ sender
 
 			bool isGood = false;
 			if (m_year < from_year) isGood = true;
-			else if (m_month < from_month) isGood = true;
-			else if (m_day <= from_day) isGood = true;
+			else if (m_month < from_month && m_year <= from_year) isGood = true;
+			else if (m_day <= from_day && m_year <= from_year && m_month <= from_month) isGood = true;
 
 			if (isGood)
 			{
